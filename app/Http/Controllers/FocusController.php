@@ -82,7 +82,14 @@ class FocusController extends Controller
      */
     public function update(Request $request, Focus $focus)
     {
-        //
+        $data = $request->$request->validate([
+            'name' => 'required',
+            'description' => 'required'
+        ]);
+
+        $focus->update($data);
+
+        return new FocusResource($focus);
     }
 
     /**

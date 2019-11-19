@@ -176,8 +176,26 @@ export default {
     },
     save() {
       if (this.editedIndex > -1) {
-        Object.assign(this.focuses[this.editedIndex], this.editedItem);
+        console.log('updating focus');
+        //Object.assign(this.focuses[this.editedIndex], this.editedItem);
+        this.error = null;
+        this.saving = true;
+        api
+            .update(this.editedItem.focusId, this.editedItem)
+            .then(data => {
+                this.close(true);
+            })
+                     .catch(e => {
+            this.error =
+              e.response.data.message ||
+              "There was an issue updating the focus.";
+          })
+          .then(() => {
+            this.saving = false;
+          });
+
       } else {
+        console.log('creating focus');
         this.error = null;
         this.saving = true;
         api

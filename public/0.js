@@ -301,8 +301,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this3 = this;
 
       if (this.editedIndex > -1) {
-        Object.assign(this.focuses[this.editedIndex], this.editedItem);
+        console.log('updating focus'); //Object.assign(this.focuses[this.editedIndex], this.editedItem);
+
+        this.error = null;
+        this.saving = true;
+        _store_focus__WEBPACK_IMPORTED_MODULE_0__["default"].update(this.editedItem.focusId, this.editedItem).then(function (data) {
+          _this3.close(true);
+        })["catch"](function (e) {
+          _this3.error = e.response.data.message || "There was an issue updating the focus.";
+        }).then(function () {
+          _this3.saving = false;
+        });
       } else {
+        console.log('creating focus');
         this.error = null;
         this.saving = true;
         _store_focus__WEBPACK_IMPORTED_MODULE_0__["default"].create(this.editedItem).then(function (data) {

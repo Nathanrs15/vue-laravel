@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 Route::get('/focuses', 'FocusController@index');
 Route::post('/focuses', 'FocusController@store');
+Route::put('/focuses/{id}', 'FocusController@update');
 Route::delete('/focuses/{focus}', 'FocusController@destroy');
 
 
