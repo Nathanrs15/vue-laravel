@@ -153,7 +153,7 @@ export default {
             this.loading = false;
             this.error = error.response.data.message || error.message;
           });
-      }, 2000);
+      }, 500);
     },
     info(item, index, button) {
       this.infoModal.title = `Row index: ${index}`;

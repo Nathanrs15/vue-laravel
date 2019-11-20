@@ -97,7 +97,7 @@ export default {
 
             console.log("error: ", err);
           });
-      }, 2000);
+      }, 500);
     },
     getUserById(id) {
       this.$http({

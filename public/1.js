@@ -274,7 +274,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           _this.loading = false;
           console.log("error: ", err);
         });
-      }, 2000);
+      }, 500);
     },
     getUserById: function getUserById(id) {
       var _this2 = this;

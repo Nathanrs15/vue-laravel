@@ -274,7 +274,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           _this.loading = false;
           _this.error = error.response.data.message || error.message;
         });
-      }, 2000);
+      }, 500);
     },
     info: function info(item, index, button) {
       this.infoModal.title = "Row index: ".concat(index);
